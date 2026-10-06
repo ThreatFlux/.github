@@ -1,42 +1,63 @@
 # ThreatFlux
 
-## Introduction
+ThreatFlux builds open-source security tooling in Rust: libraries for binary, string and threat analysis, SDKs for AI and security APIs, and the CI/CD templates we use to ship them.
 
-ThreatFlux is an open-source security group focused on developing free, community-driven software tools for cybersecurity. Its mission is to provide accessible solutions for threat detection, analysis, and data security, with an emphasis on modern techniques such as AI integration ([GitHub - ThreatFlux/YaraFlux: A yara based MCP Server](https://github.com/ThreatFlux/YaraFlux#:~:text=YaraFlux%20MCP%20Server%20enables%20AI,analysis%20through%20a%20modular%20architecture)) ([GitHub - ThreatFlux/searchyaml: A new database](https://github.com/ThreatFlux/searchyaml#:~:text=SearchYAML)). All projects are released under permissive licenses (primarily the MIT License) to encourage wide use and collaboration ([ThreatFlux repositories · GitHub](https://github.com/orgs/ThreatFlux/repositories#:~:text=A%20new%20database)). By dedicating efforts to free and open software, ThreatFlux aims to empower researchers and practitioners with practical and innovative security tools.
+## Supported Rust projects
 
-## Repositories
+These are the projects we actively maintain and release. Version badges are live.
 
-Some of ThreatFlux’s notable open-source projects include:
+### Security analysis
 
-- **[YaraFlux](https://github.com/ThreatFlux/YaraFlux)** – A YARA-based Model Context Protocol (MCP) server that integrates with AI assistants. YaraFlux allows large language models (LLMs) to analyze files using YARA rules, enabling automated malware scanning and threat analysis via a standardized interface ([GitHub - ThreatFlux/YaraFlux: A yara based MCP Server](https://github.com/ThreatFlux/YaraFlux#:~:text=A%20Model%20Context%20Protocol%20,analyze%20files%20with%20YARA%20rules)). *(MIT License; Python)*
+| Project | What it does | Release | Crate |
+| --- | --- | --- | --- |
+| [file-scanner](https://github.com/ThreatFlux/file-scanner) | MCP-enabled file scanner for security analysis | [![release](https://img.shields.io/github/v/release/ThreatFlux/file-scanner?label=)](https://github.com/ThreatFlux/file-scanner/releases) | |
+| [threatflux-binary-analysis](https://github.com/ThreatFlux/threatflux-binary-analysis) | Parsing and analysis primitives for ELF, PE, Mach-O, Java and WebAssembly binaries | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-binary-analysis?label=)](https://github.com/ThreatFlux/threatflux-binary-analysis/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-binary-analysis?label=)](https://crates.io/crates/threatflux-binary-analysis) |
+| [threatflux-string-analysis](https://github.com/ThreatFlux/threatflux-string-analysis) | Deterministic, configurable string extraction and analysis for security tooling | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-string-analysis?label=)](https://github.com/ThreatFlux/threatflux-string-analysis/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-string-analysis?label=)](https://crates.io/crates/threatflux-string-analysis) |
+| [threatflux-threat-detection](https://github.com/ThreatFlux/threatflux-threat-detection) | Threat detection library with YARA integration and malware analysis | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-threat-detection?label=)](https://github.com/ThreatFlux/threatflux-threat-detection/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-threat-detection?label=)](https://crates.io/crates/threatflux-threat-detection) |
+| [threatflux-hashing](https://github.com/ThreatFlux/threatflux-hashing) | Async file hashing with MD5, SHA-256, SHA-512 and BLAKE3 | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-hashing?label=)](https://github.com/ThreatFlux/threatflux-hashing/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-hashing?label=)](https://crates.io/crates/threatflux-hashing) |
+| [threatflux-package-security](https://github.com/ThreatFlux/threatflux-package-security) | Offline-first metadata and risk signals for npm, Python and Java packages | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-package-security?label=)](https://github.com/ThreatFlux/threatflux-package-security/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-package-security?label=)](https://crates.io/crates/threatflux-package-security) |
+| [yrlint](https://github.com/ThreatFlux/yrlint) | Linter for YARA and YARA-X rules | [![release](https://img.shields.io/github/v/release/ThreatFlux/yrlint?label=)](https://github.com/ThreatFlux/yrlint/releases) | |
 
-- **[SearchYAML](https://github.com/ThreatFlux/searchyaml)** – A high-performance, memory-mapped key–value store with built-in search capabilities. SearchYAML bridges traditional databases and modern AI/ML workloads by combining efficient CRUD operations with native text and vector search on YAML data ([GitHub - ThreatFlux/searchyaml: A new database](https://github.com/ThreatFlux/searchyaml#:~:text=SearchYAML)). *(MIT License; Go)*
+### AI and API SDKs
 
-- **[Cryptum-Go](https://github.com/ThreatFlux/cryptum-go)** – A robust Go implementation of the “Cryptum” encryption framework. Cryptum-Go provides secure hybrid encryption using RSA and AES (4096-bit RSA for key exchange and AES-GCM for data) and is cross-compatible with the Python version of Cryptum ([GitHub - ThreatFlux/cryptum-go: A Go implementation of the Cryptum encryption framework, providing secure hybrid encryption capabilities using RSA and AES. This project is compatible with the Python cryptum library while leveraging Go's strong cryptographic primitives.](https://github.com/ThreatFlux/cryptum-go#:~:text=A%20robust%20Go%20implementation%20of,leveraging%20Go%27s%20strong%20cryptographic%20primitives)). It offers both a CLI tool and a library for developers, supporting features like key generation and end-to-end encrypted data storage. *(MIT License; Go)*
+| Project | What it does | Release | Crate |
+| --- | --- | --- | --- |
+| [openai_rust_sdk](https://github.com/ThreatFlux/openai_rust_sdk) | Async, type-safe Rust client for the OpenAI API | [![release](https://img.shields.io/github/v/release/ThreatFlux/openai_rust_sdk?label=)](https://github.com/ThreatFlux/openai_rust_sdk/releases) | [![crates.io](https://img.shields.io/crates/v/openai_rust_sdk?label=)](https://crates.io/crates/openai_rust_sdk) |
+| [anthropic_rust_sdk](https://github.com/ThreatFlux/anthropic_rust_sdk) | Rust SDK for the Anthropic API | [![release](https://img.shields.io/github/v/release/ThreatFlux/anthropic_rust_sdk?label=)](https://github.com/ThreatFlux/anthropic_rust_sdk/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-anthropic-sdk?label=)](https://crates.io/crates/threatflux-anthropic-sdk) |
+| [vertex_rust_sdk](https://github.com/ThreatFlux/vertex_rust_sdk) | Async Rust client for generative AI on Google Cloud Vertex AI and Gemini | [![release](https://img.shields.io/github/v/release/ThreatFlux/vertex_rust_sdk?label=)](https://github.com/ThreatFlux/vertex_rust_sdk/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-vertex-rust-sdk?label=)](https://crates.io/crates/threatflux-vertex-rust-sdk) |
+| [ollama_rust_sdk](https://github.com/ThreatFlux/ollama_rust_sdk) | Async Rust client and CLI for the Ollama API | [![release](https://img.shields.io/github/v/release/ThreatFlux/ollama_rust_sdk?label=)](https://github.com/ThreatFlux/ollama_rust_sdk/releases) | [![crates.io](https://img.shields.io/crates/v/ollama_rust_sdk?label=)](https://crates.io/crates/ollama_rust_sdk) |
+| [virustotal-rs](https://github.com/ThreatFlux/virustotal-rs) | Rust SDK for the VirusTotal API v3, with an MCP server | [![release](https://img.shields.io/github/v/release/ThreatFlux/virustotal-rs?label=)](https://github.com/ThreatFlux/virustotal-rs/releases) | [![crates.io](https://img.shields.io/crates/v/virustotal-rs?label=)](https://crates.io/crates/virustotal-rs) |
+| [threatflux-atlassian](https://github.com/ThreatFlux/threatflux-atlassian) | Rust SDK and CLI for Jira automation | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-atlassian?label=)](https://github.com/ThreatFlux/threatflux-atlassian/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-atlassian-sdk?label=)](https://crates.io/crates/threatflux-atlassian-sdk) |
+| [threatflux-unifi-sdk](https://github.com/ThreatFlux/threatflux-unifi-sdk) | SDK for UDM Pro and UniFi OS device automation | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-unifi-sdk?label=)](https://github.com/ThreatFlux/threatflux-unifi-sdk/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-unifi-sdk?label=)](https://crates.io/crates/threatflux-unifi-sdk) |
+| [FluxPrompt](https://github.com/ThreatFlux/FluxPrompt) | Local prompt-injection risk signals and mitigation helpers | [![release](https://img.shields.io/github/v/release/ThreatFlux/FluxPrompt?label=)](https://github.com/ThreatFlux/FluxPrompt/releases) | [![crates.io](https://img.shields.io/crates/v/fluxprompt?label=)](https://crates.io/crates/fluxprompt) |
+| [gguf](https://github.com/ThreatFlux/gguf) | Read and write GGUF model files | [![release](https://img.shields.io/github/v/release/ThreatFlux/gguf?label=)](https://github.com/ThreatFlux/gguf/releases) | [![crates.io](https://img.shields.io/crates/v/gguf-rs-lib?label=)](https://crates.io/crates/gguf-rs-lib) |
 
-- **[YARA-Rules](https://github.com/ThreatFlux/Yara-Rules)** – A repository of curated YARA rules for malware detection and threat actor tracking. The rules are organized by category (threat groups, malware families, known good files, etc.) for easy navigation and maintenance ([GitHub - ThreatFlux/Yara-Rules: Yara-Rules](https://github.com/ThreatFlux/Yara-Rules#:~:text=YARA%20Rules%20Repository)). Security analysts can use this collection to quickly identify malicious files or confirm benign files in investigations. *(MIT License; YARA)*
+### Libraries
 
-- **[BookManager](https://github.com/ThreatFlux/BookManager)** – A comprehensive command-line tool for managing book writing projects. BookManager can scan and organize manuscript directories, analyze content (word counts, term frequency, TODOs), and compile outputs in multiple formats (DOCX, EPUB, PDF) ([GitHub - ThreatFlux/BookManager: A book manager](https://github.com/ThreatFlux/BookManager#:~:text=A%20comprehensive%20command,manuscript%20compilations%20in%20multiple%20formats)). While not strictly a security tool, it reflects ThreatFlux’s commitment to open-source utility software. *(MIT License; Python)*
+| Project | What it does | Release | Crate |
+| --- | --- | --- | --- |
+| [FluxEncrypt](https://github.com/ThreatFlux/FluxEncrypt) | Encryption SDK for Rust applications | [![release](https://img.shields.io/github/v/release/ThreatFlux/FluxEncrypt?label=)](https://github.com/ThreatFlux/FluxEncrypt/releases) | [![crates.io](https://img.shields.io/crates/v/fluxencrypt?label=)](https://crates.io/crates/fluxencrypt) |
+| [threatflux-cache](https://github.com/ThreatFlux/threatflux-cache) | Bounded async cache with in-memory and filesystem backends | [![release](https://img.shields.io/github/v/release/ThreatFlux/threatflux-cache?label=)](https://github.com/ThreatFlux/threatflux-cache/releases) | [![crates.io](https://img.shields.io/crates/v/threatflux-cache?label=)](https://crates.io/crates/threatflux-cache) |
 
-*_(Repositories under active development or experimental status (such as new agents or internal tools) are omitted from the above list.)_*
+### Build and release
+
+| Project | What it does | Release |
+| --- | --- | --- |
+| [rust-cicd-template](https://github.com/ThreatFlux/rust-cicd-template) | Rust CI/CD template: GitHub Actions, Makefile, security scanning and release automation | [![release](https://img.shields.io/github/v/release/ThreatFlux/rust-cicd-template?label=)](https://github.com/ThreatFlux/rust-cicd-template/releases) |
+| [github_actions](https://github.com/ThreatFlux/github_actions) | Shared release automation (reusable auto-release workflow and Rust release action) used across ThreatFlux repositories | [![release](https://img.shields.io/github/v/release/ThreatFlux/github_actions?label=)](https://github.com/ThreatFlux/github_actions/releases) |
+
+## How we ship
+
+Every project above uses one release pipeline, built from [rust-cicd-template](https://github.com/ThreatFlux/rust-cicd-template) and [github_actions](https://github.com/ThreatFlux/github_actions). Conventional commits drive versioning, CI and security scans gate every release, crates are published to crates.io, and container images are signed and ship with SBOMs.
 
 ## Contributing
 
-ThreatFlux welcomes contributions from the community. If you’d like to get involved in improving these projects or adding new ones, you can follow the standard GitHub workflow ([Yara-Rules/CONTRIBUTING.md at main · ThreatFlux/Yara-Rules · GitHub](https://github.com/ThreatFlux/Yara-Rules/blob/main/CONTRIBUTING.md#:~:text=How%20to%20Contribute)):
+Issues and pull requests are welcome. Fork the repository, make your change on a branch, run the project's tests, and open a pull request with a clear description. Check the repository's `CONTRIBUTING.md` first if it has one, and open an issue before starting large changes.
 
-1. **Fork the repository** you want to contribute to, creating your own copy under your GitHub account.  
-2. **Create a new branch** for your changes (e.g. `feature/new-rule` or `fix/issue-123`).  
-3. **Implement your changes** – whether it’s new features, bug fixes, or new YARA rules – adhering to any coding guidelines or style guides noted in the project.  
-4. **Test your contribution** thoroughly (for YARA rules, test against both malicious and benign samples; for code, run included test suites if available).  
-5. **Submit a pull request** to the original repository, with a clear description of your changes. The maintainers will review your PR and merge it if it meets the project’s requirements.
-
-Before contributing, it’s a good idea to check if the repository has a `CONTRIBUTING.md` guide (for example, the YARA-Rules repo provides detailed guidelines on rule format and placement). You can also open an issue to discuss major changes or to report bugs and request features. Participating in discussions and reviewing open issues/Pull Requests are additional ways to contribute to the ThreatFlux community.
+Please don't report security vulnerabilities in public issues. Email the address below instead.
 
 ## Contact
 
-For more information or support, you can reach out through the following channels:
-
-- **Email** – Contact the ThreatFlux team via email at *wyattroersma@gmail.com* ([Packages of publisher threatflux.ai](https://pub.dev/publishers/threatflux.ai/packages#:~:text=threatflux)) for inquiries or collaboration.  
-- **Website** – Visit **[ThreatFlux.ai](https://threatflux.ai)** for official updates and information (the organization’s website and hub for resources).  
-- **GitHub** – Engage with the community on the [ThreatFlux GitHub Organization](https://github.com/ThreatFlux) – you can use the repository issue trackers to ask questions or provide feedback, and watch the projects for the latest updates.
-
+- **Email:** wyattroersma@gmail.com
+- **Website:** [threatflux.ai](https://threatflux.ai)
+- **GitHub:** [github.com/ThreatFlux](https://github.com/ThreatFlux)
